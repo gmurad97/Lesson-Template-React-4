@@ -1,0 +1,42 @@
+.header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #3B424C;
+    padding: 16px 100px;
+}
+
+.company {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-left: 4px solid #FF5335;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.company__title {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 800;
+    color: #1D181F;
+    margin-bottom: 4px;
+}
+
+.company__stats {
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1D181F;
+}
+
+.company__staff-count {
+    font-weight: 600;
+    color: #B29C85;
+}

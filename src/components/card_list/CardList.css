@@ -1,0 +1,15 @@
+.section__card {
+    padding: 100px;
+}
+
+.card__list {
+    background-color: #3B424C;
+    padding: 32px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    list-style: none;
+}
