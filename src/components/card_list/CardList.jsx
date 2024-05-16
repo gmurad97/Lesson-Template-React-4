@@ -32,7 +32,6 @@ class CardList extends React.Component {
         return (
             <section className="section__common">
                 <h1 className="section__common-title">Persons</h1>
-                <h2 className="section__empty-data">There is no data</h2>
                 <div className="cards">
                     <ul className="card__list">
                         {this.state.persons.length > 0 ? (
