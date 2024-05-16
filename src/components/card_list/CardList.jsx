@@ -5,46 +5,45 @@ import CardItem from "./components/card_item/CardItem";
 class CardList extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            persons: [
+                { "id": 1, "first_name": "Murad", "last_name": "Gazymagomedov", "salary": 5000, "salary_type": "usd", "img": "https://avatars.githubusercontent.com/u/118082910?v=4" },
+                { "id": 2, "first_name": "Jane", "last_name": "Smith", "salary": 7000, "salary_type": "eur", "img": "https://randomuser.me/api/portraits/women/90.jpg" },
+                { "id": 3, "first_name": "Michael", "last_name": "Johnson", "salary": 150000, "salary_type": "rub", "img": "https://randomuser.me/api/portraits/men/9.jpg" },
+                { "id": 4, "first_name": "Emily", "last_name": "Brown", "salary": 8000, "salary_type": "gbp", "img": "https://randomuser.me/api/portraits/women/48.jpg" },
+                { "id": 5, "first_name": "David", "last_name": "Williams", "salary": 6000, "salary_type": "usd", "img": "https://randomuser.me/api/portraits/men/83.jpg" },
+                { "id": 6, "first_name": "Sarah", "last_name": "Jones", "salary": 5500, "salary_type": "eur", "img": "https://randomuser.me/api/portraits/women/66.jpg" },
+                { "id": 7, "first_name": "Christopher", "last_name": "Martinez", "salary": 225000, "salary_type": "rub", "img": "https://randomuser.me/api/portraits/men/94.jpg" },
+                { "id": 8, "first_name": "Amanda", "last_name": "Garcia", "salary": 7200, "salary_type": "gbp", "img": "https://randomuser.me/api/portraits/women/80.jpg" },
+                { "id": 9, "first_name": "Daniel", "last_name": "Taylor", "salary": 5300, "salary_type": "usd", "img": "https://randomuser.me/api/portraits/men/64.jpg" },
+                { "id": 10, "first_name": "Megan", "last_name": "Clark", "salary": 6700, "salary_type": "eur", "img": "https://randomuser.me/api/portraits/women/10.jpg" }
+            ]
+        };
+    }
+
+    targetPersonDelete = (personId) => {
+        this.setState((prevState) => ({
+            ...prevState,
+            persons: prevState.persons.filter((person) => person.id !== personId)
+        }));
     }
 
     render() {
-
-        const persons = [
-            { "id": 1, "first_name": "Murad", "last_name": "Gazymagomedov", "description": "description", "img": "img1" },
-            { "id": 2, "first_name": "Alice", "last_name": "Smith", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "img": "img2" },
-            { "id": 3, "first_name": "John", "last_name": "Johnson", "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "img": "img3" },
-            { "id": 4, "first_name": "Emma", "last_name": "Williams", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "img": "img4" },
-            { "id": 5, "first_name": "Michael", "last_name": "Brown", "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "img": "img5" },
-            { "id": 6, "first_name": "Sophia", "last_name": "Jones", "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "img": "img6" },
-            { "id": 7, "first_name": "Daniel", "last_name": "Miller", "description": "Fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "img": "img7" },
-            { "id": 8, "first_name": "Olivia", "last_name": "Davis", "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", "img": "img8" },
-            { "id": 9, "first_name": "James", "last_name": "Garcia", "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.", "img": "img9" },
-            { "id": 10, "first_name": "Emily", "last_name": "Rodriguez", "description": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", "img": "img10" }
-        ];
-
         return (
-            <section className="section__card">
-
-
-                <div className="card">
+            <section className="section__common">
+                <h1 className="section__common-title">Persons</h1>
+                <h2 className="section__empty-data">There is no data</h2>
+                <div className="cards">
                     <ul className="card__list">
-
-                        {persons.map((person) => (
-                            <CardItem />
-                        ))}
-
-                        {/* <CardItem key={index} /> */}
-                        {/*                         {persons.map((person, index) => (
-                            <h1 key={index}>react</h1>
-
-                        ))} */}
-
+                        {this.state.persons.length > 0 ? (
+                            this.state.persons.map((person, index) => (
+                                <CardItem personData={person} onPersonDelete={this.targetPersonDelete} key={index} />
+                            ))
+                        ) : (
+                            <h2 className="section__empty-data">There is no data</h2>
+                        )}
                     </ul>
                 </div>
-
-
-
-
             </section>
         );
     }

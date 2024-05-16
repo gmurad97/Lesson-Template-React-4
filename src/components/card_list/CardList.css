@@ -1,15 +1,48 @@
-.section__card {
-    padding: 100px;
-}
-
-.card__list {
-    background-color: #3B424C;
-    padding: 32px;
-
-
+.section__common {
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    padding: 100px;
+}
+
+.section__common-title {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 600;
+    color: #B29C85;
+    margin-bottom: 16px;
+}
+
+.section__empty-data {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1D181F;
+}
+
+.cards {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.card__list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #3B424C;
     list-style: none;
+    padding: 32px;
 }

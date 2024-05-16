@@ -2,40 +2,34 @@ import React from "react";
 import "./CardItem.css";
 
 class CardItem extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
+        const { id, first_name, last_name, salary, salary_type, img } = this.props.personData;
+        const { onPersonDelete } = this.props;
+
         return (
             <li className="card__item">
+                <div className="card__item-group">
+                    <div className="card__item-column">
+                        <h1 className="card__item-title">Id</h1>
+                        <p className="card__item-value">{id}</p>
+                    </div>
+                    <div className="card__item-column">
+                        <div className="card__item-image-block">
+                            <img className="card__item-image" src={img} alt={first_name + " " + last_name} />
+                        </div>
+                    </div>
+                </div>
 
+                <div className="card__item-column" style={{ width: "256px" }}>
+                    <h1 className="card__item-title">Name/Surname</h1>
+                    <p className="card__item-value">{first_name + " " + last_name}</p>
+                </div>
+                <div className="card__item-column" style={{ width: "150px" }}>
+                    <h1 className="card__item-title">Salary</h1>
+                    <p className="card__item-value">{salary + " " + salary_type}</p>
+                </div>
                 <div className="card__item-column">
-                    <h1 class="card__item-title">ID</h1>
-                    <p class="card__item-text">1</p>
-                </div>
-
-
-
-                <div class="card__item-column">
-                    <h1 class="card__item-title">Изображение</h1>
-                    <img class="card__item-image" src="https://o-tendencii.com/uploads/posts/2022-05/1653954004_75-o-tendencii-com-p-skorpion-mortal-kombat-tatu-foto-75.jpg" alt="" />
-                </div>
-
-                <div class="card__item-column">
-                    <h1 class="card__item-title">Имя Фамилия</h1>
-                    <p class="card__item-text">Murad Gazymagomedov</p>
-                </div>
-
-
-                <div class="card__item-column">
-                    <h1 class="card__item-title">Зарплата/месяц</h1>
-                    <p class="card__item-text">$10000</p>
-                </div>
-
-
-                <div class="card__item-column">
-                    <button class="card__item-button" type="button">✖</button>
+                    <button onClick={() => onPersonDelete(id)} className="card__item-btn" type="button">✖</button>
                 </div>
             </li>
         );
